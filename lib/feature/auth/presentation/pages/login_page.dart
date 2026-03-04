@@ -4,15 +4,14 @@ import 'package:writehub/core/theme/app_pallete.dart';
 import 'package:writehub/feature/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:writehub/feature/auth/presentation/widgets/auth_input_field.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  final nameController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -20,7 +19,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void dispose() {
-    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -29,9 +27,6 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
-      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -41,11 +36,9 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Sign Up',
+                  'Log in',
                   style: TextStyle(fontSize: 52, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10),
-                AuthInputField(labelText: "Name", controller: nameController),
                 SizedBox(height: 10),
                 AuthInputField(labelText: "Email", controller: emailController),
                 SizedBox(height: 10),
@@ -55,20 +48,19 @@ class _SignUpPageState extends State<SignUpPage> {
                   isObscureText: true,
                 ),
                 SizedBox(height: 20),
-                AuthGradientButton(buttonText: "Sign up"),
+                AuthGradientButton(buttonText: "Log In"),
                 SizedBox(height: 20),
-
                 GestureDetector(
                   onTap: () {
-                    context.go('/login');
+                    context.go('/signup');
                   },
                   child: RichText(
                     text: TextSpan(
-                      text: "Already have an account? ",
+                      text: "Don't have an account? ",
                       style: Theme.of(context).textTheme.titleMedium,
                       children: [
                         TextSpan(
-                          text: "Login",
+                          text: "Sign Up",
                           style: TextStyle(
                             color: AppPallete.gradient2,
                             fontWeight: FontWeight.w700,

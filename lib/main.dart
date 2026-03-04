@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:writehub/core/router/app_router.dart';
 import 'package:writehub/core/theme/theme.dart';
-import 'package:writehub/feature/auth/presentation/pages/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Write Hub',
       theme: AppTheme.darkThemeMode,
-      home: const SignUpPage(),
+      routerConfig: appRouter,
     );
   }
 }
